@@ -25,20 +25,23 @@ const { isLoggedIn, checkRole } = require("../middlewares/route-guard");
 router.get("/iniciar-sesion", isLoggedIn, async (req, res, next) => {
   try {
     // const users = await Users.find();
-    res.redirect("/buscar");
+    res.redirect("/");
   } catch (error) {
     router.get("/iniciar-sesion", (req, res, next) => res.render("auth/login"));
   }
 });
+
 router.post("/iniciar-sesion", (req, res, next) => {
   const { email, userPwd } = req.body;
 
   User.findOne({ email })
     .then((user) => {
       if (!user) {
-        res.render("auth/login", {
-          errorMessage: "Email no registrado en la Base de Datos",
-        });
+        // res.render("auth/login", {
+        //   errorMessage: "Email no registrado en la Base de Datos",
+        // });
+
+        res.redirect("/registro");
         return;
       } else if (bcrypt.compareSync(userPwd, user.password) === false) {
         res.render("auth/login", {
@@ -47,7 +50,7 @@ router.post("/iniciar-sesion", (req, res, next) => {
         return;
       } else {
         req.session.currentUser = user;
-        res.redirect("/buscar");
+        res.redirect("/");
       }
     })
     .catch((error) => next(error));

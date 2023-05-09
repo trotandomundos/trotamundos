@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const Users = require("../models/User.model");
 const bcrypt = require("bcryptjs");
+const { isLoggedIn } = require("../middlewares/route-guard");
+
 const saltRounds = 10;
 
 // Sta dice cual es la pagina que tiene que renderizar
-router.get("/", (req, res, next) => {
+router.get("/", isLoggedIn, (req, res, next) => {
   res.render("buscar", { users: req.session.currentUser });
 });
 
