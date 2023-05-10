@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const experienciaSchema = new Schema({
+const experienceSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
@@ -25,6 +25,6 @@ const experienciaSchema = new Schema({
   },
 });
 
-const Experiencia = mongoose.model("Experiencia", experienciaSchema);
+const Experience = mongoose.model("Experience", experienceSchema);
 
-module.exports = Experiencia;
+module.exports = Experience;

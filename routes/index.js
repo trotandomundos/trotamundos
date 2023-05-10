@@ -1,7 +1,7 @@
 module.exports = (app) => {
   //Home and search routes
-  const buscar = require("./buscar.routes");
-  app.use("/", buscar);
+  const home = require("./search.routes");
+  app.use("/", home);
 
   // Auth routes
   const authRouter = require("./auth.routes");
@@ -12,6 +12,6 @@ module.exports = (app) => {
   app.use("/users", indexStudent);
 
   //experiencias
-  const experiencias = require("./experiencias.routes");
-  app.use("/experiencias", experiencias);
+  const experiences = require("./experiences.routes");
+  app.use("/myExperiences", experiences);
 };
