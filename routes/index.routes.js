@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const router = require("express").Router();
 
-/* GET home page */
+const User = require("../models/User.model");
+const { isLoggedOut, isLoggedIn } = require("../middlewares/route-guard");
+
 router.get("/", (req, res, next) => {
   res.render("index");
 });

@@ -1,4 +1,7 @@
-// https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Trotamundos JS imported successfully!");
-});
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    console.log("lab-express-auth-roles JS imported successfully!");
+  },
+  false
+);
