@@ -1,15 +1,17 @@
 module.exports = (app) => {
-  // Base routes
-  const indexRouter = require("./index.routes");
-  app.use("/", indexRouter);
+  //Home and search routes
+  const home = require("./search.routes");
+  app.use("/", home);
 
   // Auth routes
   const authRouter = require("./auth.routes");
   app.use("/", authRouter);
 
-  const studentsRouter = require("./students.routes");
-  app.use("/students", studentsRouter);
+  //STUDENT
+  const indexStudent = require("./users.routes");
+  app.use("/users", indexStudent);
 
-  const coursesRouter = require("./courses.routes");
-  app.use("/courses", coursesRouter);
+  //experiencias
+  const experiences = require("./experiences.routes");
+  app.use("/myExperiences", experiences);
 };

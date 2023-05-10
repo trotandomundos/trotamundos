@@ -18,15 +18,13 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
-app.locals.siteTitle = `IronLearn`;
+app.locals.siteTitle = `Trotamundos`;
 
 // Session config
-require('./config/session.config')(app)
+require("./config/session.config")(app);
 
 // Routes
-require("./routes")(app)
-const index = require("./routes/index");
-app.use("/", index);
+require("./routes")(app);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

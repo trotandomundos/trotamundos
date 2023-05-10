@@ -6,11 +6,7 @@ const saltRounds = 10;
 // Signup
 router.get("/registro", (req, res, next) => res.render("auth/signup"));
 router.post("/registro", (req, res, next) => {
-  const { userPwd, profileImg } = req.body;
-
-  // if (profileImg !== String || profileImg === "") {
-  //   profileImg = undefined;
-  // }
+  const { userPwd } = req.body;
 
   bcrypt
     .genSalt(saltRounds)
@@ -23,16 +19,29 @@ router.post("/registro", (req, res, next) => {
 });
 
 // Login
-router.get("/iniciar-sesion", (req, res, next) => res.render("auth/login"));
+
+const { isLoggedIn, checkRole } = require("../middlewares/route-guard");
+
+router.get("/iniciar-sesion", isLoggedIn, async (req, res, next) => {
+  try {
+    // const users = await Users.find();
+    res.redirect("/");
+  } catch (error) {
+    router.get("/iniciar-sesion", (req, res, next) => res.render("auth/login"));
+  }
+});
+
 router.post("/iniciar-sesion", (req, res, next) => {
   const { email, userPwd } = req.body;
 
   User.findOne({ email })
     .then((user) => {
       if (!user) {
-        res.render("auth/login", {
-          errorMessage: "Email no registrado en la Base de Datos",
-        });
+        // res.render("auth/login", {
+        //   errorMessage: "Email no registrado en la Base de Datos",
+        // });
+
+        res.redirect("/registro");
         return;
       } else if (bcrypt.compareSync(userPwd, user.password) === false) {
         res.render("auth/login", {
@@ -52,7 +61,4 @@ router.post("/cerrar-sesion", (req, res, next) => {
   req.session.destroy(() => res.redirect("/iniciar-sesion"));
 });
 
-router.get("/logout", (req, res, next) => {
-  req.session.destroy(() => res.redirect("/"));
-});
 module.exports = router;

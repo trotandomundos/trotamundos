@@ -1,0 +1,15 @@
+<h2>Experience Details</h2>
+
+<div>
+  <div style="border: solid 1px red">
+    {{experience.id}}
+    {{experience.titulo}}
+    {{experience.texto}}
+    {{experience.imagenes}}
+    {{experience.filtro}}
+    <a href="/myExperiences/{{experience.id}}/edit">edit</a>
+    <form action="/myExperiences/{{experience.id}}/delete" method="POST">
+      <button type="submit">borrar</button>
+    </form>
+  </div>
+</div>

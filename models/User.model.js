@@ -7,29 +7,17 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      match: [
-        /^(?=.*[A-Z]).{8}$/,
-        "Password needs to have at least 8 chars and must contain one number.",
-      ],
-    },
-
-    role: {
-      type: String,
-      enum: ["STUDENT", "DEV", "TA", "PM"],
-      default: "STUDENT",
-      required: true,
     },
     profileImg: {
       type: String,
       default: "https://i.stack.imgur.com/l60Hf.png",
-      required: true,
     },
-    description: {
+    description: { type: String, default: "No existe descripción." },
+    role: {
       type: String,
-      default: "No existe descripción.",
-      required: true,
+      enum: ["STUDENT", "DEV", "TA", "PM"],
+      default: "STUDENT",
     },
-    // add roles setup here
   },
   {
     timestamps: true,
