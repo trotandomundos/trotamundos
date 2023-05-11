@@ -38,7 +38,7 @@ router
       .catch((err) => console.log(err));
   });
 
-// Mostrar una experiencia en concerto
+// Mostrar una experiencia en concreto
 router
   .get("/:id", isLoggedIn, async (req, res, next) => {
     const experience = await Experience.findOne({
