@@ -12,6 +12,12 @@ const reviewSchema = new Schema({
    // required: true,
    // maxlength: 20
   },
+  stars: {
+    type: Number,
+   // required: true,
+    min: 1,
+    max: 5
+  },
   rating: {
     type: Number,
     min: 0,

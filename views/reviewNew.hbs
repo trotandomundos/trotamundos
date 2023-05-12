@@ -11,13 +11,16 @@
       <form action="/myReviews/create" method="POST">
         <div>
           <label for="title">Título:</label>
-          <input type="text" id="titulo" name="titulo" />
+          <input type="text" id="titulo" name="title" />
         </div>
         <div>
           <label for="texto">Comentario:</label>
-          <textarea type="text" id="texto" name="texto" rows="10"></textarea>
+          <textarea type="text" id="texto" name="comment" rows="10"></textarea>
         </div>
-       
+       <div>
+          <label for="rating">Puntuacion:</label>
+          <textarea type="number" id="rating" name="rating" ></textarea>
+        </div>
         
         <div>
           <button type="submit">Crear Reseña</button>

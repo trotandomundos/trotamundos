@@ -23,12 +23,13 @@ router
   res.render("reviewNew", { users: req.session.currentUser });
 })
 .post("/create", isLoggedIn, async (req, res) => {
-  const { title, rating, comment /*location */ } = req.body;
+  const { title, rating, comment,/* stars *//*location */ } = req.body;
 
   Review.create({
     title,
     rating,
     comment,
+    //stars,
     /*location: {
         type: "Point",
         coordinates: [longitude, latitude]
