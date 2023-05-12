@@ -14,4 +14,10 @@ module.exports = (app) => {
   //experiencias
   const experiences = require("./experiences.routes");
   app.use("/myExperiences", experiences);
+
+
+//reviews
+
+const reviews = require("./reviews.routes");
+app.use("/myReviews",reviews )
 };

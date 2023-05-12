@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Experience = require("../models/Review.model");
+const Review = require("../models/Review.model");
 const User = require("../models/User.model");
 const { isLoggedIn } = require("../middlewares/route-guard");
 
@@ -25,7 +25,7 @@ router
 .post("/create", isLoggedIn, async (req, res) => {
   const { titulo, texto, imagenes, filtro } = req.body;
 
-  Experience.create({
+  Review.create({
     title,
     rating,
     comment,
