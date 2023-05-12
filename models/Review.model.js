@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-  userId: {
+  /*userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
-  },
+  },*/
   title: {
     type: String,
-    required: true,
-    maxlength: 20
+   // required: true,
+   // maxlength: 20
   },
   rating: {
     type: Number,
@@ -19,8 +19,8 @@ const reviewSchema = new Schema({
   },
   comment: {
     type: String,
-    required: true,
-    maxlength: 150
+   // required: true,
+   // maxlength: 150
   },
   createdAt: {
     type: Date,

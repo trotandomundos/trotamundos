@@ -23,16 +23,16 @@ router
   res.render("reviewNew", { users: req.session.currentUser });
 })
 .post("/create", isLoggedIn, async (req, res) => {
-  const { titulo, texto, imagenes, filtro } = req.body;
+  const { title, rating, comment /*location */ } = req.body;
 
   Review.create({
     title,
     rating,
     comment,
-    location: {
+    /*location: {
         type: "Point",
         coordinates: [longitude, latitude]
-      },
+      },*/
     userId: req.session.currentUser._id,
   })
     .then(() => res.redirect("/myReviews")) //crear 
