@@ -1,46 +1,38 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-  /*userId: {
+  userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
-  },*/
+  },
+  experienceId: {
+    type: Schema.Types.ObjectId,
+    ref: "Experience",
+    required: true,
+  },
   title: {
     type: String,
-   // required: true,
-   // maxlength: 20
+    required: true,
+    maxlength: 20,
   },
-  stars: {
-    type: Number,
-   // required: true,
-    min: 1,
-    max: 5
+  comment: {
+    type: String,
+    required: true,
+    maxlength: 500,
   },
   rating: {
     type: Number,
     min: 0,
-    max: 10
-  },
-  comment: {
-    type: String,
-   // required: true,
-   // maxlength: 150
+    max: 10,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
-  // GeoJSON: https://www.mongodb.com/docs/manual/reference/geojson/
-  location: {
-    type: {
-      type: String // Point, Line, Polygon...
-    },
-    coordinates: [Number] // Lng [-180 to 180]  - Lat [-90 to 90]
-  }
 });
 
-const Review = mongoose.model('Review', reviewSchema);
+const Review = mongoose.model("Review", reviewSchema);
 
 module.exports = Review;

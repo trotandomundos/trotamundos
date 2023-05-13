@@ -15,8 +15,8 @@ const userSchema = new Schema(
     description: { type: String, default: "No existe descripción." },
     role: {
       type: String,
-      enum: ["STUDENT", "DEV", "TA", "PM"],
-      default: "STUDENT",
+      enum: ["USER", "ADMIN"],
+      default: "USER",
     },
   },
   {

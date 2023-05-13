@@ -27,7 +27,7 @@ router.get("/iniciar-sesion", isLoggedIn, async (req, res, next) => {
     // const users = await Users.find();
     res.redirect("/");
   } catch (error) {
-    router.get("/iniciar-sesion", (req, res, next) => res.render("auth/login"));
+    res.render("auth/login");
   }
 });
 

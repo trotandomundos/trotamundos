@@ -5,9 +5,9 @@
 <h5>{{user.description}}</h5>
 {{! // hay que poner studens , la ruta de inicio }}
 {{#if canEdit}}
-  <a href="/users/{{user._id}}/edit">Edit</a>
+  <a href="/user/{{user._id}}/edit">Edit</a>
 {{/if}}
 {{#if canDelete}}
-  <a href="/users/{{user._id}}/delete">Delete</a>
+  <a href="/user/{{user._id}}/delete">Delete</a>
 {{/if}}
 {{! // la propiedad es _id }}

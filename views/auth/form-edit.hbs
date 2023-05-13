@@ -7,7 +7,7 @@
       <h1>Actualización de datos</h1>
       <hr />
 
-      <form action="/users/{{user._id}}/edit" method="POST">
+      <form action="/user/{{user._id}}/edit" method="POST">
 
         <div class="mb-3 row">
           <div class="col">
@@ -66,11 +66,11 @@
             name="description"
           >{{user.description}}</textarea>
         </div>
-        {{#if canEditPM}}
+        {{#if canEdit}}
           <div class="mb-3">
             <label for="roleInput" class="form-label">Role:</label>
             <select name="role">
-              <option value="STUDENT">Student</option>
+              <option value="USER">User</option>
               <option value="DEV">Dev</option>
               <option value="TA">TA</option>
             </select>
