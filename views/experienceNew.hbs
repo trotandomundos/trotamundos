@@ -8,7 +8,7 @@
       <h1>Nueva experiencia</h1>
     </header>
     <main>
-      <form action="/myExperiences/new" method="POST">
+      <form action="/myExperiences/new" method="POST" enctype="multipart/form-data">
         <div>
           <label for="titulo">Título:</label>
           <input type="text" id="titulo" name="titulo" />
@@ -18,13 +18,12 @@
           <textarea type="text" id="texto" name="texto" rows="10"></textarea>
         </div>
         <div>
-          <label for="imagenes">Imágenes:</label>
+          <label for="imagen">Imágenes:</label>
           <input
             type="file"
-            id="imagenes"
-            name="imagenes"
+            id="imagen"
+            name="imagen"
             accept="image/*"
-            multiple
           />
         </div>
         <div>

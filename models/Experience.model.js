@@ -13,11 +13,10 @@ const experienceSchema = new Schema({
   texto: {
     type: String,
   },
-  imagenes: [
+  imagen: 
     {
       type: String,
     },
-  ],
   filtro: {
     type: [String],
     enum: ["pais", "ciudad", "naturaleza", "ocio", "precio"],

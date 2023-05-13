@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Experience = require("../models/Experience.model");
 const Review = require("../models/Review.model");
 const { isLoggedIn } = require("../middlewares/route-guard");
+const uploader = require("../config/claudinary.config");
 
 // Mostrar todas mis experiencias
 router.get("/", isLoggedIn, async (req, res, next) => {
@@ -17,23 +18,24 @@ router.get("/", isLoggedIn, async (req, res, next) => {
 });
 
 // Formulario de crear una nueva experiencia
-router
-  .get("/new", isLoggedIn, (req, res, next) => {
-    res.render("experienceNew", { user: req.session.currentUser });
-  })
-  .post("/new", isLoggedIn, async (req, res) => {
-    const { titulo, texto, imagenes, filtro } = req.body;
 
-    Experience.create({
-      titulo,
-      texto,
-      imagenes,
-      filtro,
-      userId: req.session.currentUser._id,
-    })
-      .then(() => res.redirect("/myExperiences"))
-      .catch((err) => console.log(err));
-  });
+router.get("/new", isLoggedIn, (req, res, next) => {
+  res.render("experienceNew", { user: req.session.currentUser });
+});
+
+router.post("/new", isLoggedIn, uploader.single("imagen"), async (req, res) => {
+  const { titulo, texto, imagen, filtro } = req.body;
+  console.log(req.file);
+  Experience.create({
+    titulo,
+    texto,
+    imagen: req.file.path,
+    filtro,
+    userId: req.session.currentUser._id,
+  })
+    .then(() => res.redirect("/myExperiences"))
+    .catch((err) => console.log(err));
+});
 
 // Mostrar una experiencia en concreto
 router
