@@ -15,11 +15,8 @@ module.exports = (app) => {
   const experiences = require("./experiences.routes");
   app.use("/myExperiences", experiences);
 
-  //reviews
-  const reviews = require("./reviews.routes");
-  app.use("/myReviews", reviews);
+  //search
+  const search = require("./experiences.routes");
+  app.use("/search", experiences);
 
-  // find places
-  const findPlace = require("./findPlaces.routes");
-  app.use("/",findPlace)
 };

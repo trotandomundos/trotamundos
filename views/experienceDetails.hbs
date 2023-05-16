@@ -1,31 +1,55 @@
-<h2>Experience Details</h2>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Experience Details</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>x
+    <h2 class="title-experienceDetails">Experience Details</h2>
 
-<div>
-  <div style="border: solid 1px red">
-    {{experience.id}}
-    {{experience.titulo}}
-    {{experience.texto}}
-    <img src="{{experiencie.imagen}}" alt="">
-    {{experience.filtro}}
-    {{!-- // este lo saco del objeto experienciade arriba// --}}
-    <a href="/myExperiences/{{experience.id}}/edit">edit</a>
-    <form action="/myExperiences/{{experience.id}}/delete" method="POST">
-      <button type="submit">borrar</button>
-    </form>
-  </div>
-  <a
-    href="/myExperiences/{{experience.id}}/reviews/new"
-    class="btn btn-dark"
-  >Añadir reseña</a>
-  <br></br>
-  <h3>Reseñas</h3>
-  {{#each reviews}}
-    <div style="border: solid 1px red">
-      {{title}}
-      {{rating}}
-      {{comment}}
-{{!-- este lo pillo del modelo --}}
-      <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a> 
+    <div class="container-main">
+      <div class="container-reviews">
+        <div class="experience-izquierda" style="border: solid 1px red">
+          {{!-- {{experience.id}} --}}
+          {{experience.titulo}}
+          {{experience.texto}}
+          <img src="{{experience.imagen}}" alt="" />
+          {{experience.filtro}}
+          <div class="buttons-experience">
+            <a href="/myExperiences/{{experience.id}}/edit">edit</a>
+            <form
+              action="/myExperiences/{{experience.id}}/delete"
+              method="POST"
+            >
+              <button type="submit">borrar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="reviews">
+          <div class="title-reviews">
+            <h3>Reseñas</h3>
+          </div>
+          {{#each reviews}}
+            <div class="details-reviews" style="border: solid 1px red">
+              {{title}}
+              <br />
+              {{rating}}
+              <br />
+              {{comment}}
+              <br />
+              {{! este lo pillo del modelo }}
+              <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a>
+            </div>
+          {{/each}}
+          <a
+            href="/myExperiences/{{experience.id}}/reviews/new"
+            class="btn btn-dark"
+          >Añadir reseña</a>
+        </div>
+      </div>
     </div>
-  {{/each}}
-</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
