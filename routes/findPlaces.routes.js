@@ -14,7 +14,7 @@ router.post("/search-places", async(req, res, next)=>{
    let {location, category, name} = req.body
    // llamamos a la API 
    // http://tour-pedia.org/api/getPlaces?category=restaurant&location=Berlin&name=La+Dolce+Vita
-   // bar california
+   // bar california -->Bar+California
    if(name){
         let words = name.split(' '); // split the string into an array of words
         for (let i = 0; i < words.length; i++) {
@@ -26,6 +26,7 @@ router.post("/search-places", async(req, res, next)=>{
    let urlAPi = `http://tour-pedia.org/api/getPlaces?category=${category}&location=${location}&name=${name}`
 
    axios.get(urlAPi)
+
    .then(response=>{ 
        res.render("search-places-results", {response :response.data})
    })
