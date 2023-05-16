@@ -12,8 +12,8 @@
 
 <body>
  {{!-- para acceder a la imagen de favicon , es "../" --}}
- <div>
-    <img src="/favicon.png" alt="Trotamundoss" width="50" height="50">
+ <div class="container-nav">
+   
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
        <a class="navbar-brand" href="/">{{siteTitle}}</a>
@@ -36,9 +36,8 @@
                 <a class="nav-link" href="/myExperiences">Mis experiencias</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/search-places">Buscar sitios</a>
+                <a class="nav-link" href="/user/{{user._id}}">Mis ajustes</a>
               </li>
-
               {{else}}
               <li class="nav-item">
                 <a class="nav-link" href="/registro">Registro</a>
@@ -46,8 +45,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
               </li>
-
-              
           {{/if}} 
       </div>
     </div>
