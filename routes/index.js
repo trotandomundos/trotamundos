@@ -18,4 +18,8 @@ module.exports = (app) => {
   //reviews
   const reviews = require("./reviews.routes");
   app.use("/myReviews", reviews);
+
+  // find places
+  const findPlace = require("./findPlaces.routes");
+  app.use("/",findPlace)
 };

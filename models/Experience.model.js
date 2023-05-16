@@ -23,12 +23,15 @@ const experienceSchema = new Schema({
     required: false,
   },
   // GeoJSON: https://www.mongodb.com/docs/manual/reference/geojson/
-  location: {
-    type: {
-      type: String, // Point, Line, Polygon...
-    },
-    coordinates: [Number], // Lng [-180 to 180]  - Lat [-90 to 90]
-  },
+  // location: {
+  //   type: {
+  //     type: String, // Point, Line, Polygon...
+  //   },
+  //   coordinates: [Number], // Lng [-180 to 180]  - Lat [-90 to 90]
+  // },
+  location: String, 
+  coordinates:[String], 
+  placeName: String,
 });
 
 const Experience = mongoose.model("Experience", experienceSchema);

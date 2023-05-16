@@ -18,6 +18,9 @@ const userSchema = new Schema(
       enum: ["USER", "ADMIN"],
       default: "USER",
     },
+    //referencia ID para no tomar todos los datos de la experiencia
+    
+    myExperiences: [{ type: Schema.Types.ObjectId, ref: "Experience" }]
   },
   {
     timestamps: true,

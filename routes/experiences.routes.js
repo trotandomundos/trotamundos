@@ -26,10 +26,14 @@ router.get("/new", isLoggedIn, (req, res, next) => {
 router.post("/new", isLoggedIn, uploader.single("imagen"), async (req, res) => {
   const { titulo, texto, imagen, filtro } = req.body;
   console.log(req.file);
+  let image = undefined
+  if (req.file){
+     image = req.file.path
+  }
   Experience.create({
     titulo,
     texto,
-    imagen: req.file.path,
+    imagen: image,
     filtro,
     userId: req.session.currentUser._id,
   })
@@ -181,5 +185,7 @@ router.get("/:id/reviews/:reviewId", isLoggedIn, async (req, res, next) => {
     user: req.session.currentUser,
   });
 });
+
+
 
 module.exports = router;
