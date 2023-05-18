@@ -1,67 +1,52 @@
 <h2>Experience Details</h2>
 
-<div>
+<div class="marco">
   <div>
     {{experience.id}}
     {{experience.titulo}}
     {{experience.texto}}
-    <img src="{{experiencie.imagen}}" alt="">
+    <img src="{{experiencie.imagen}}" alt="" />
     {{experience.filtro}}
-    {{!-- // este lo saco del objeto experienciade arriba// --}}
+    {{! // este lo saco del objeto experienciade arriba// }}
     <a href="/myExperiences/{{experience.id}}/edit">edit</a>
     <form action="/myExperiences/{{experience.id}}/delete" method="POST">
       <button type="submit">borrar</button>
     </form>
+
+    <a
+      href="/myExperiences/{{experience.id}}/reviews/new"
+      class="btn btn-dark"
+    >Añadir reseña</a>
   </div>
-  <a
-    href="/myExperiences/{{experience.id}}/reviews/new"
-    class="btn btn-dark"
-  >Añadir reseña</a>
-  <br></br>
-  {{!-- MAPA --}}
-  <div id="map" style=" margin-left: 500px; height: 400px; width:600px;"></div>
-  <br></br>
+
+  MAPA
+  <div id="map" style=" margin-left: 100px; height: 100px; width:100px;"></div>
+  {{! <br></br> }}
   <h3>Reseñas</h3>
   {{#each reviews}}
-    <div >
+    <div class="marco">
       {{title}}
       {{rating}}
       {{comment}}
-{{!-- este lo pillo del modelo --}}
-      <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a> 
+      {{! este lo pillo del modelo }}
+      <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a>
     </div>
   {{/each}}
- {{!-- COPIADO A PELO DEL LAB, TENDRIA QUE COGER LOS DATOS DE LA LLAMADA A LA API --}}
-   {{!-- <div class="mb-3">
-          <label for="latitude" class="form-label">Latitude</label>
-          <input
-            required
-            type="number"
-            step="any"
-            class="form-control"
-            id="latitude"
-            name="latitude"
-          />
-        </div>
-
-        <div class="mb-3">
-          <label for="longitude" class="form-label">Longitude</label>
-          <input
-            required
-            type="number"
-            step="any"
-            class="form-control"
-            id="longitude"
-            name="longitude"
-          />
-        </div> --}}
 
 </div>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet"
-  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css" />
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script
+  src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"
+></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+  type="text/css"
+/>
 <script src="/js/create-map.js"></script>
-{{!-- 
- //todos los js para crear el mapa// --}}
+{{! 
+ //todos los js para crear el mapa// }}

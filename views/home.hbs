@@ -4,11 +4,13 @@
     <title>Búsqueda de experiencias</title>
   </head>
   <body>
+<div class="container-home, marco"  >
+   <div class="home" >    
     <header>
       <h1>Búsqueda de experiencias</h1>
     </header>
     <main>
-      <form action="/search" method="GET">
+      <form id="form-home" action="/search" method="GET">
         <div>
           <label for="pais">País:</label>
           <input type="text" id="pais" name="pais" />
@@ -48,17 +50,21 @@
             <label for="filtro_romantico">Romántico</label>
           </div>
         </div>
-        <div>
-          <button type="submit">Buscar</button>
-        </div>
+      
+ 
+    
+        
       </form>
-    </main>
-  </body>
-</html>
+     </div>  
 
-<a href="/myExperiences/new" class="btn btn-dark">Añadir experiencia</a>
-<a href="/search" class="btn btn-dark">buscar</a>
-<a href="/user/{{user._id}}" class="btn btn-dark">ajustes</a>
+  <div class="container-buttonExperiencia">
+  <button id="button-añadirExperiencia">
+  <a href="/myExperiences/new" class="btn btn-dark">Añadir experiencia</a>
+  </button>
+  </div>
+
+</div>
+{{!-- <a href="/user/{{user._id}}" class="btn btn-dark">ajustes</a> --}}
 
     </main>
   </body>

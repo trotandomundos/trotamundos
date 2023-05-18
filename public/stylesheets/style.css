@@ -11,10 +11,31 @@ body {
 }
 
 .container-nav {
-  width: 100%;
+  width: 90%;
 
 }
-.nav
+.marco {
+  border: 2px solid #374785;
+  background-color: #182c49;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px;
+}
+
+/* Añade cualquier otro estilo adicional que desees */
+#home{
+  width: 90%;
+  text-align: center;
+}
+#form-home #pais,#ciudad,#fecha_fin,#fecha_inicio,#checkbox{
+  width: 30%;
+}
+.justify-content-center{
+  width: 80%;
+}
+#nav{
+  width: 100%;
+}
 
 .container {
   height: 80%;
@@ -23,6 +44,10 @@ body {
   align-items: center;
   padding: 0 150px;
 }
+.container-home{
+  display: flex;
+}
+
 
 .container-main {
   display: flex;
@@ -31,6 +56,26 @@ body {
   flex-wrap: wrap;
   padding: 20px;
   padding-top: 100px;
+}
+.container-buttonExperiencia {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#button-añadirExperiencia {
+  background-color: #1084c8;
+  color: white;
+  font-size: 20px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#button-añadirExperiencia:hover {
+  background-color: #00bbff;
+  color: white;
 }
 
 .columna {
@@ -312,3 +357,44 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.column {
+  width: 100%;
+  max-width: 400px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .column {
+    width: 50%;
+    max-width: none;
+  }
+}
+
