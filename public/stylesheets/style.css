@@ -44,9 +44,7 @@ body {
   align-items: center;
   padding: 0 150px;
 }
-.container-home{
-  display: flex;
-}
+
 
 
 .container-main {
@@ -57,26 +55,8 @@ body {
   padding: 20px;
   padding-top: 100px;
 }
-.container-buttonExperiencia {
-  display: flex;
-  justify-content: flex-start;
-}
 
-#button-añadirExperiencia {
-  background-color: #1084c8;
-  color: white;
-  font-size: 20px;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
 
-#button-añadirExperiencia:hover {
-  background-color: #00bbff;
-  color: white;
-}
 
 .columna {
   text-align: center;
@@ -387,6 +367,7 @@ body {
   margin-top: 20px;
 }
 
+
 @media (min-width: 768px) {
   .container {
     flex-direction: row;
@@ -397,4 +378,52 @@ body {
     max-width: none;
   }
 }
+#container-home  {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-buttonPlacesx{
+  background-color: #182c49;
+  border: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.container-buttonPlaces:hover,
+.container-buttonExperiencia:hover {
+  background-color: #73b2ff;
+}
+
+.container-buttonPlaces a,
+.container-buttonExperiencia a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container-buttonPlaces a.nav-link,
+.container-buttonExperiencia a.nav-link {
+  display: block;
+  padding: 8px 16px;
+}
+
+.container-buttonPlaces a.nav-link:hover,
+.container-buttonExperiencia a.nav-link:hover {
+  background-color: #73b2ff;
+  color: #182c49;
+}
+#container-home{
+  display: flex;
+  margin-top: 5%;
+  height: 60%;
+  width: 80%;
+}
+.home{
+    display: flex;
+    margin: 0 auto;
+  }
+  #button-añadirExperiencia{
+    height: 100%
+  }
+
 

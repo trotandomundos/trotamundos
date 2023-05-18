@@ -26,9 +26,9 @@ router.get("/new", isLoggedIn, (req, res, next) => {
 router.post("/new", isLoggedIn, uploader.single("imagen"), async (req, res) => {
   const { titulo, texto, imagen, filtro } = req.body;
   console.log(req.file);
-  let image = undefined
-  if (req.file){
-     image = req.file.path
+  let image = undefined;
+  if (req.file) {
+    image = req.file.path;
   }
   Experience.create({
     titulo,
@@ -80,6 +80,7 @@ router.get("/:id/edit", isLoggedIn, async (req, res, next) => {
 
     res.render("experienceEdit", {
       experience: experience,
+      user: req.session.currentUser,
     });
   } catch (error) {
     console.log(error);
@@ -141,7 +142,10 @@ router
 router
   .get("/:id/reviews/new", isLoggedIn, (req, res, next) => {
     console.log(req.params);
-    res.render("reviewNew", { experienceId: req.params.id });
+    res.render("reviewNew", {
+      experienceId: req.params.id,
+      user: req.session.currentUser,
+    });
   })
   .post("/:id/reviews/new", isLoggedIn, async (req, res) => {
     console.log(req.body);
@@ -185,7 +189,5 @@ router.get("/:id/reviews/:reviewId", isLoggedIn, async (req, res, next) => {
     user: req.session.currentUser,
   });
 });
-
-
 
 module.exports = router;

@@ -1,20 +1,24 @@
-
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
     <title>Ajustes Perfil de usuario</title>
   </head>
   <body>
-    <header>
+    <div class="marco">
       <h1>Perfil de usuario</h1>
-    </header>
-    <main>
-      <section>
-        <h2>Información de usuario</h2>
-        <ul>
-          <li><strong>Username:</strong> {{user.username}}</li>
-          <li><strong>Email:</strong> {{user.email}}</li>
-          <li><strong>Imagen de perfil:</strong> <img src="{{user.profileImg}}" alt="Imagen de perfil" /></li>
-          <li><strong>Descripción:</strong> {{user.description}}</li>
-        </ul>
-      </section>
-    </main>
+
+      <main>
+        <section>
+          <h2>Información de usuario</h2>
+          <ul>
+            <li><strong>Username:</strong> {{user.username}}</li>
+            <li><strong>Email:</strong> {{user.email}}</li>
+            <li><strong>Imagen de perfil:</strong>
+              <img src="{{user.profileImg}}" alt="Imagen de perfil" /></li>
+            <li><strong>Descripción:</strong> {{user.description}}</li>
+          </ul>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

@@ -4,9 +4,9 @@
     <title>Búsqueda de experiencias</title>
   </head>
   <body>
-<div class="container-home, marco"  >
+<div class="marco" id="container-home" >
    <div class="home" >    
-    <header>
+    {{!-- <header>
       <h1>Búsqueda de experiencias</h1>
     </header>
     <main>
@@ -55,11 +55,14 @@
     
         
       </form>
-     </div>  
+     </div>   --}}
+  <button class="container-buttonPlaces"  >
+      <a class="nav-link" href="/search-places">Buscar sitios</a>
+  </button>  
 
   <div class="container-buttonExperiencia">
   <button id="button-añadirExperiencia">
-  <a href="/myExperiences/new" class="btn btn-dark">Añadir experiencia</a>
+  <a  class="nav-link" href="/myExperiences/new" class="btn btn-dark">Añadir experiencia</a>
   </button>
   </div>
 
