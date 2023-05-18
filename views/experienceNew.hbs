@@ -8,11 +8,7 @@
       <h1>Nueva experiencia</h1>
     </header>
     <main>
-      <form
-        action="/myExperiences/new"
-        method="POST"
-        enctype="multipart/form-data"
-      >
+      <form action="/myExperiences/new" method="POST" enctype="multipart/form-data">
         <div>
           <label for="titulo">Título:</label>
           <input type="text" id="titulo" name="titulo" />
@@ -24,12 +20,10 @@
         <div>
           <label for="imagen">Imágenes:</label>
           <input
-            {{! // para las imagenes que quieres subir a la nube// }}
             type="file"
             id="imagen"
             name="imagen"
             accept="image/*"
-            max="5"
           />
         </div>
         <div>

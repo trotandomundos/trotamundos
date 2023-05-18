@@ -1,0 +1,46 @@
+<h1>Resultados</h1>
+
+<div class="results-container">
+  {{#each response}}
+    <div class="result-card">
+      <hr />
+      <p>name: {{name}}</p>
+      <input type="text" name="name" value="{{name}}" hidden />
+      <p>address: {{address}}</p>
+      <input type="text" name="address" value="{{address}}" hidden />
+      <p>category: {{category}}</p>
+      <p>location: {{location}}</p>
+      <p>number of reviews: {{numReviews}}</p>
+      <p>Details: <a href="{{details}}">Ver detalles</a></p>
+      <canvas id="myChart"></canvas>
+      <div id="map-{{@index}}" style="width: 100%; height: 400px;"></div>
+
+      {{! <div
+        id="map"
+        style=" margin-left: 500px; height: 400px; width:600px;"
+      ></div> }}
+      <form action="/create-experience-with-api" method="post">
+        {{!-- <input type="text" name="lat" value="{{lat}}" hidden />
+      <input type="text" name="lng" value="{{lng}}" hidden /> --}}
+        {{! <button type="submit">Crear experiencia</button> }}
+      </form>
+    </div>
+  {{/each}}
+
+</div>
+<script src="/js/create-map.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script
+  src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"
+></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+  type="text/css"
+
+/>
+

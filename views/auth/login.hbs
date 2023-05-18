@@ -1,12 +1,13 @@
-<body>
-  <div class="container">
-    <div class="logo-container">
-      <img src="ruta_del_logo" alt="Logo" />
-    </div>
-    <div class="form-container">
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+
       <h1>Inicio de sesión</h1>
       <hr />
-      <form class="form-login" action="/iniciar-sesion" method="POST">
+
+      <form action="/iniciar-sesion" method="POST">
         <div class="mb-3">
           <label for="emailInput" class="form-label">Dirección de email</label>
           <input
@@ -27,7 +28,7 @@
           />
         </div>
 
-        <div class="d-grid">
+        <div class="d-grid gap-2">
           <button type="submit" class="btn btn-dark block">Acceder</button>
         </div>
 
@@ -40,5 +41,5 @@
       </form>
     </div>
   </div>
-</body>
-<link rel="stylesheet" href="styles.css" />
+
+</div>

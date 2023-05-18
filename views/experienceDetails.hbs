@@ -1,55 +1,67 @@
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Experience Details</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>x
-    <h2 class="title-experienceDetails">Experience Details</h2>
+<h2>Experience Details</h2>
 
-    <div class="container-main">
-      <div class="container-reviews">
-        <div class="experience-izquierda" style="border: solid 1px red">
-          {{!-- {{experience.id}} --}}
-          {{experience.titulo}}
-          {{experience.texto}}
-          <img src="{{experience.imagen}}" alt="" />
-          {{experience.filtro}}
-          <div class="buttons-experience">
-            <a href="/myExperiences/{{experience.id}}/edit">edit</a>
-            <form
-              action="/myExperiences/{{experience.id}}/delete"
-              method="POST"
-            >
-              <button type="submit">borrar</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="reviews">
-          <div class="title-reviews">
-            <h3>Reseñas</h3>
-          </div>
-          {{#each reviews}}
-            <div class="details-reviews" style="border: solid 1px red">
-              {{title}}
-              <br />
-              {{rating}}
-              <br />
-              {{comment}}
-              <br />
-              {{! este lo pillo del modelo }}
-              <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a>
-            </div>
-          {{/each}}
-          <a
-            href="/myExperiences/{{experience.id}}/reviews/new"
-            class="btn btn-dark"
-          >Añadir reseña</a>
-        </div>
-      </div>
+<div>
+  <div>
+    {{experience.id}}
+    {{experience.titulo}}
+    {{experience.texto}}
+    <img src="{{experiencie.imagen}}" alt="">
+    {{experience.filtro}}
+    {{!-- // este lo saco del objeto experienciade arriba// --}}
+    <a href="/myExperiences/{{experience.id}}/edit">edit</a>
+    <form action="/myExperiences/{{experience.id}}/delete" method="POST">
+      <button type="submit">borrar</button>
+    </form>
+  </div>
+  <a
+    href="/myExperiences/{{experience.id}}/reviews/new"
+    class="btn btn-dark"
+  >Añadir reseña</a>
+  <br></br>
+  {{!-- MAPA --}}
+  <div id="map" style=" margin-left: 500px; height: 400px; width:600px;"></div>
+  <br></br>
+  <h3>Reseñas</h3>
+  {{#each reviews}}
+    <div >
+      {{title}}
+      {{rating}}
+      {{comment}}
+{{!-- este lo pillo del modelo --}}
+      <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a> 
     </div>
+  {{/each}}
+ {{!-- COPIADO A PELO DEL LAB, TENDRIA QUE COGER LOS DATOS DE LA LLAMADA A LA API --}}
+   {{!-- <div class="mb-3">
+          <label for="latitude" class="form-label">Latitude</label>
+          <input
+            required
+            type="number"
+            step="any"
+            class="form-control"
+            id="latitude"
+            name="latitude"
+          />
+        </div>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+        <div class="mb-3">
+          <label for="longitude" class="form-label">Longitude</label>
+          <input
+            required
+            type="number"
+            step="any"
+            class="form-control"
+            id="longitude"
+            name="longitude"
+          />
+        </div> --}}
+
+</div>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css" />
+<script src="/js/create-map.js"></script>
+{{!-- 
+ //todos los js para crear el mapa// --}}

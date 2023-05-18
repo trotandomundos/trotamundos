@@ -1,14 +1,12 @@
 const router = require("express").Router();
 const Experience = require("../models/Experience.model");
-
 const Review = require("../models/Review.model");
 const { isLoggedIn } = require("../middlewares/route-guard");
 const uploader = require("../config/claudinary.config");
 
-// EXPERIENCIE----------------//
-
 // Mostrar todas mis experiencias
 router.get("/", isLoggedIn, async (req, res, next) => {
+  console.log(req.session.currentUser._id);
   const experiences = await Experience.find({
     userId: req.session.currentUser._id,
   });
@@ -26,12 +24,16 @@ router.get("/new", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/new", isLoggedIn, uploader.single("imagen"), async (req, res) => {
-  const { titulo, texto, filtro } = req.body;
-  const imagen = req.file ? req.file.path : null; // NULL por defecto.
+  const { titulo, texto, imagen, filtro } = req.body;
+  console.log(req.file);
+  let image = undefined
+  if (req.file){
+     image = req.file.path
+  }
   Experience.create({
     titulo,
     texto,
-    imagen, //IMAGENES
+    imagen: image,
     filtro,
     userId: req.session.currentUser._id,
   })
@@ -78,7 +80,6 @@ router.get("/:id/edit", isLoggedIn, async (req, res, next) => {
 
     res.render("experienceEdit", {
       experience: experience,
-      user: req.session.currentUser,
     });
   } catch (error) {
     console.log(error);
@@ -93,7 +94,6 @@ router.post("/:id/edit", async (req, res, next) => {
       descripcion: req.body.descripcion,
       fecha: req.body.fecha,
       pais: req.body.pais,
-      // imagen: req.file.path,
     });
     res.redirect("/myExperiences");
   } catch (error) {
@@ -101,11 +101,9 @@ router.post("/:id/edit", async (req, res, next) => {
   }
 });
 
-//------------------------//
-
 // -- REVIEWS
 
-// Mostrar todas mis reviews, solo GET
+// Mostrar todas mis reviews
 router.get("/:id/reviews", isLoggedIn, async (req, res, next) => {
   console.log(req.session.currentUser._id);
   const reviews = await Review.find({
@@ -117,23 +115,15 @@ router.get("/:id/reviews", isLoggedIn, async (req, res, next) => {
   });
 });
 
-// Formulario editar reseña
-
-router.get(
-  "/:id/reviews/:reviewId/edit",
-  isLoggedIn,
-  async (req, res, next) => {
-    console.log(req.session.currentUser);
+// Formulario de crear una nueva review
+router
+  .get("/:id/reviews/:reviewId/edit", isLoggedIn, async (req, res, next) => {
     const review = await Review.findById({
       _id: req.params.reviewId,
     });
     res.render("reviewEdit", { review: review });
-  }
-);
-router.post(
-  "/:id/reviews/:reviewId/edit",
-  isLoggedIn,
-  async (req, res, next) => {
+  })
+  .post("/:id/reviews/:reviewId/edit", isLoggedIn, async (req, res, next) => {
     const { title, rating, comment } = req.body;
     try {
       const review = await Review.findByIdAndUpdate(req.params.reviewId, {
@@ -145,26 +135,17 @@ router.post(
     } catch (error) {
       next(error);
     }
-  }
-);
+  });
 
 // Formulario de crear una nueva review
-
-router.get("/:id/reviews/new", isLoggedIn, (req, res, next) => {
-  console.log(req.params);
-  res.render("reviewNew", {
-    experienceId: req.params.id,
-    // userId: req.session.currentUser._id,
-    user: req.session.currentUser,
-  });
-});
-router.post(
-  "/:id/reviews/new",
-  isLoggedIn,
-  uploader.single("imagen"),
-  async (req, res) => {
+router
+  .get("/:id/reviews/new", isLoggedIn, (req, res, next) => {
+    console.log(req.params);
+    res.render("reviewNew", { experienceId: req.params.id });
+  })
+  .post("/:id/reviews/new", isLoggedIn, async (req, res) => {
+    console.log(req.body);
     const { title, rating, comment } = req.body;
-    const imagen = req.file ? req.file.path : null;
 
     Review.create({
       userId: req.session.currentUser._id,
@@ -172,14 +153,11 @@ router.post(
       title,
       rating,
       comment,
-      imagen,
     })
       .then(() => res.redirect("/")) //crear
       .catch((err) => console.log(err));
-  }
-);
+  });
 
-//eliminar reseñar, es solo un POST no hay get
 router.post(
   "/:id/reviews/:reviewId/delete",
   isLoggedIn,
@@ -196,7 +174,6 @@ router.post(
     }
   }
 );
-
 // Mostrar una review en concreto
 router.get("/:id/reviews/:reviewId", isLoggedIn, async (req, res, next) => {
   const review = await Review.findById({
@@ -208,5 +185,7 @@ router.get("/:id/reviews/:reviewId", isLoggedIn, async (req, res, next) => {
     user: req.session.currentUser,
   });
 });
+
+
 
 module.exports = router;

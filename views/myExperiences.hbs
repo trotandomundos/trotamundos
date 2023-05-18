@@ -1,8 +1,8 @@
-{{!-- <h2>Experiences list</h2>
+<h2>Experiences list</h2>
 
 <div>
   {{#each experiences}}
-    <div style="border: solid 1px red">
+    <div >
       {{titulo}}
       {{texto}}
       {{imagenes}}
@@ -10,32 +10,4 @@
       <a href="/myExperiences/{{_id}}">Visitar</a>
     </div>
   {{/each}}
-</div> --}}
-
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h2>Experiences list</h2>
-    </div>
-
-    <div class="container-main">
-      {{#each experiences}}
-        <div class="columna">
-          <div>
-            <h3>{{titulo}}</h3>
-            <p>{{texto}}</p>
-            <img src="{{imagenes}}" alt="Imagen" />
-            <p>{{filtro}}</p>
-            <a class="view-details" href="/myExperiences/{{_id}}">Visitar</a>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  </body>
-</html>
+</div>
