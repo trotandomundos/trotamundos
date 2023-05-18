@@ -1,101 +1,32 @@
 // const MAPBOX_ACCESS_TOKEN = MAPBOX_KEY;
-MAPBOX_ACCESS_TOKEN =
+const MAPBOX_ACCESS_TOKEN =
   "pk.eyJ1IjoiaXJlbmVndiIsImEiOiJjbGhyd2xza3EyZm1zM2xvZGNnNjI3NXJxIn0.ENRxlLmYlxI7a7vJKsHbsQ";
-
-const main = async () => {
-  console.log("creadno mapa");
+// cuando se carga la pagina se ejecuta
+const main = () => {
+  // se setea la api key de mapbox
   mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+  // div id="map-{{lat}}/{{lng}}" style="width: 100%; height: 400px;"></div>
+  const mapas = document.querySelectorAll('[id^="map-"]'); // es una query
 
-  // Create map with search input (geocoder)
-  const map = new mapboxgl.Map({
-    container: "map",
-    zoom: 12,
-    center: [-3, 40],
-    style: "mapbox://styles/mapbox/streets-v11",
-  });
+  // iteras los mapas
+  mapas.forEach((mapa, index, arr) => {
+    // mapa = map-3123123.3123213213/1.13123123
+    // mapa.replace("map-", "") = 3123123.3123213213/1.13123123
+    // mapa.split("/") = [3123123.3123213213, 1.13123123]
+    const coords = mapa?.id?.replace("map-", "").split("/");
+    const latitude = coords[0];
+    const longitude = coords[1];
 
-  // Get current location
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(`Your location is:`, position);
-        const { longitude, latitude } = position.coords;
-        map.setCenter([longitude, latitude]);
-        // map.setZoom(5);
+    console.log("latitude ==>", latitude);
+    console.log("longitude ==>", longitude);
 
-        const marker = addMarker([longitude, latitude]);
-        const popup = createPopUp("<h1>This is a popup</h1>");
-        marker.setPopup(popup);
-      },
-      () => console.log("Unable to get current location!")
-    );
-  } else {
-    console.log(
-      "Browser does not support geolocation. Try giving location permission."
-    );
-  }
-
-  // Add full screen control
-  const fullScreenControl = new mapboxgl.FullscreenControl({
-    container: "map",
-  });
-  map.addControl(fullScreenControl);
-
-  // Geolocate control
-  const geolocateControl = new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true,
-    },
-    trackUserLocation: true,
-    showUserHeading: true,
-  });
-  map.addControl(geolocateControl);
-
-  // Navigation controls
-  const nav = new mapboxgl.NavigationControl({
-    visualizePitch: true,
-  });
-  map.addControl(nav, "bottom-right");
-
-  // Geocoder control (search)
-  const geocoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl,
-  });
-  map.addControl(geocoder);
-  // Listener that fires every time you get a search result
-  geocoder.on("result", (e) => {
-    console.log(e);
-    const center = e.result.center;
-    const latInput = document.querySelector("#latitude");
-    const lngInput = document.querySelector("#longitude");
-    lngInput.value = center[0];
-    latInput.value = center[1];
-  });
-
-  // Marker
-  const addMarker = (coords) => {
-    return new mapboxgl.Marker({
-      color: "blue",
-      draggable: true,
-    })
-      .setLngLat(coords)
-      .addTo(map);
-  };
-
-  // PopUp
-  const createPopUp = (html) =>
-    new mapboxgl.Popup({ offset: "top", className: "my-class" })
-      .setHTML(html)
-      .setMaxWidth("300px");
-
-  // Go to clicked point
-  map.on("click", (e) => {
-    console.log(e);
-    map.flyTo({
-      center: [e.lngLat.lng, e.lngLat.lat],
+    // Create map with search input (geocoder)
+    const map = new mapboxgl.Map({
+      container: mapa?.id,
+      zoom: 9,
+      center: [latitude, longitude],
+      style: "mapbox://styles/timiyay/cilub3df800gqa2kq178v4i8e",
     });
   });
 };
-
 window.addEventListener("load", main);

@@ -8,7 +8,11 @@
       <h1>Nueva experiencia</h1>
     </header>
     <main>
-      <form action="/myExperiences/new" method="POST" enctype="multipart/form-data">
+      <form
+        action="/myExperiences/new"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <div>
           <label for="titulo">Título:</label>
           <input type="text" id="titulo" name="titulo" />
@@ -19,12 +23,7 @@
         </div>
         <div>
           <label for="imagen">Imágenes:</label>
-          <input
-            type="file"
-            id="imagen"
-            name="imagen"
-            accept="image/*"
-          />
+          <input type="file" id="imagen" name="imagen" accept="image/*" />
         </div>
         <div>
           <label for="filtro">Filtro:</label>
@@ -43,3 +42,31 @@
     </main>
   </body>
 </html>
+{{!-- <div class="mb-3">
+  <label for="rating" class="form-label">Rating</label>
+  <input type="number" class="form-control" id="rating" name="rating" />
+</div>
+
+<div class="mb-3">
+  <label for="latitude" class="form-label">Latitude</label>
+  <input
+    required
+    type="number"
+    step="any"
+    class="form-control"
+    id="latitude"
+    name="latitude"
+  />
+</div>
+
+<div class="mb-3">
+  <label for="longitude" class="form-label">Longitude</label>
+  <input
+    required
+    type="number"
+    step="any"
+    class="form-control"
+    id="longitude"
+    name="longitude"
+  />
+</div> --}}

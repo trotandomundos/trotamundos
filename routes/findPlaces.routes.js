@@ -40,22 +40,28 @@ router.post("/search-places", isLoggedIn, async (req, res, next) => {
     });
 });
 
-//DETALLES API
+//DETALLES API, ME DEVUELVE LOS DATOS PERO NO ME APARECE EL MAPA, AUNQUE LG Y LONG ME LOS DA
 router.get("/search-places/details/:id", isLoggedIn, async (req, res, next) => {
   try {
-    const urlApi = `http://tour-pedia.org/api/getPlaceDetails?id=${experienceId}`;
     const experienceId = req.params.id;
+    const urlApi = `http://tour-pedia.org/api/getPlaceDetails?id=${experienceId}`;
     const response = await axios.get(urlApi);
     const experienceData = response.data;
 
     if (!experienceData) {
       // Lógica para manejar el caso en el que no se encuentren datos de la experiencia
+      // Por ejemplo, mostrar un mensaje de error o redirigir a otra página
     } else {
+      const coordinates = experienceData.map((place) => [place.lng, place.lat]);
+      const map = createMap(coordinates);
+
       const detailsData = experienceData.find(
         (item) => item.id === parseInt(experienceId)
       );
+
       res.render("details-experience", {
         details: detailsData,
+        map: map, // Pasa el mapa como variable a la vista
       });
     }
   } catch (error) {

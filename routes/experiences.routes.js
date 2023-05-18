@@ -58,7 +58,7 @@ router
     });
   })
   .post("/:id", isLoggedIn, (req, res, next) => {
-    //
+    // POR ESO NO APARECEN LAS IMAGENES??
   })
   .post("/:id/delete", isLoggedIn, async (req, res, next) => {
     const { deletedCount, acknowledged } = await Experience.deleteOne({

@@ -1,4 +1,3 @@
-const MAPBOX_ACCESS_TOKEN = "YOUR TOKEN GOES HERE";
 const main = async () => {
   mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
