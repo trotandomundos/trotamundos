@@ -1,47 +1,45 @@
-
-    <h1>Editar experiencia</h1>
-
-      <form action="/myExperiences/{{experience.id}}/edit" method="POST">
-        <div>
-          <label for="titulo">Título:</label>
-          <input
-            type="text"
-            id="titulo"
-            name="titulo"
-            value={{experience.titulo}}
-          />
-
-        </div>
-        
-        <div>
-          <label for="texto">Texto:</label>
-          <textarea
-            type="text"
-            id="texto"
-            name="texto"
-            rows="10"
-          >{{experience.texto}}</textarea>
-        </div>
-        <div>
-          <label for="imagen">Imágenes:</label>
-          <input
-            type="file"
-            id="imagen"
-            name="imagen"
-            accept="image/*"
-          />
-        </div>
-        <div>
-          <label for="filtro">Filtro:</label>
-          <select id="filtro" name="filtro" multiple>
-            <option value="pais">País</option>
-            <option value="ciudad">Ciudad</option>
-            <option value="naturaleza">Naturaleza</option>
-            <option value="ocio">Ocio</option>
-            <option value="precio">Precio</option>
-          </select>
-        </div>
-        <div>
-          <button type="submit">Editar experiencia</button>
-        </div>
-      </form>
+<h1>Editar experiencia</h1>
+<form action="/myExperiences/{{experience.id}}/edit" method="POST">
+  <div class="mb-3">
+    <label for="titulo" class="form-label">Título:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="titulo"
+      name="titulo"
+      value="{{experience.titulo}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="texto" class="form-label">Texto:</label>
+    <textarea
+      class="form-control"
+      id="texto"
+      name="texto"
+      rows="10"
+    >{{experience.texto}}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="imagen" class="form-label">Imágenes:</label>
+    <input
+      type="file"
+      class="form-control"
+      id="imagen"
+      name="imagen"
+      accept="image/*"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="filtro" class="form-label">Filtro:</label>
+    <select class="form-select" id="filtro" name="filtro" multiple>
+      <option value="pais">País</option>
+      <option value="ciudad">Ciudad</option>
+      <option value="naturaleza">Naturaleza</option>
+      <option value="ocio">Ocio</option>
+      <option value="precio">Precio</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Editar experiencia</button>
+  </div>
+</form>

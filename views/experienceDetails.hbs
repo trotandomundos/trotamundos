@@ -1,8 +1,8 @@
-<h2 class="title-experienceDetails">Experience Details</h2>
+<h2 >Experience Details</h2>
 
 <div class="container-main">
   <div class="container-reviews">
-    <div class="experience-izquierda" style="border: solid 1px red">
+    <div class="experience-izquierda">
       {{experience.titulo}}
      <div>
    <textarea readonly>{{experience.texto}}</textarea>
@@ -18,7 +18,11 @@
         <p>Fecha de creación: {{experience.createdAt}}</p>
       </div>
     </div>
-
+  <a
+    href="/myExperiences/{{experience.id}}/reviews/new"
+    class="btn btn-dark"
+  >Añadir reseña</a>
+  <br></br>
     <div class="reviews">
       <div class="title-reviews">
         <h3>Reseñas</h3>
