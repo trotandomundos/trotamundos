@@ -1,5 +1,7 @@
 const printChart = (labels, data) => {
-  const ctx = document.querySelector("#myChart").getContext("2d");
+  const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
   new Chart(ctx, {
     type: "bar",
     data: {

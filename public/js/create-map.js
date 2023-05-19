@@ -7,6 +7,8 @@ const main = () => {
   mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
   // div id="map-{{lat}}/{{lng}}" style="width: 100%; height: 400px;"></div>
   const mapas = document.querySelectorAll('[id^="map-"]'); // es una query
+  const canvas = document.getElementById("myCanvas");
+  // const ctx = canvas.getContext("2d", { willReadFrequently: true }); // para renderizar varios mapas
 
   // itero los mapas
   mapas.forEach((mapa, index, arr) => {
@@ -17,19 +19,18 @@ const main = () => {
     const latitude = parseFloat(coords[0]);
     const longitude = parseFloat(coords[1]);
 
-    if (isNaN(latitude) || isNaN(longitude)) {
+    if (isNaN(longitude) || isNaN(latitude)) {
       console.error("Error: Las coordenadas deben ser números");
       return;
     }
     console.log("latitude ==>", latitude);
     console.log("longitude ==>", longitude);
-
     // Create map with search input (geocoder)
     const map = new mapboxgl.Map({
       container: mapa?.id,
       zoom: 9,
-      center: [latitude, longitude],
-      style: "mapbox://estilos/mapbox/satélite-v9",
+      center: [longitude, latitude],
+      style: "mapbox://styles/mapbox/streets-v11",
     });
   });
 };
