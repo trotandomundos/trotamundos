@@ -1,55 +1,53 @@
-<h1>Busca tu sitios</h1>
-<div class="marco" >
-<form action="/search-places" method="post">
+<h1>Busca tu sitio</h1>
+<div class="marco">
+  <form action="/search-places" method="post">
     <label for="location">
-        Ciudad
-        <select name="location">
-            <option value="Amsterdam">Amsterdam</option>
-            <option value="Barcelona">Barcelona</option>
-            <option value="Berlin">Berlin</option>
-            <option value="Dubay">Dubay</option>
-            <option value="London">London</option>
-            <option value="Paris">Paris</option>
-            <option value="Rome">Rome</option>
-            <option value="Tuscany">Tuscany</option>
-            <option value="">Ninguno</option>
-        </select>
+      Ciudad
+      <select name="location">
+        <option value="Amsterdam">Amsterdam</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Berlin">Berlin</option>
+        <option value="Dubay">Dubay</option>
+        <option value="London">London</option>
+        <option value="Paris">Paris</option>
+        <option value="Rome">Rome</option>
+        <option value="Tuscany">Tuscany</option>
+        <option value="">Ninguno</option>
+      </select>
     </label>
     <label for="category">
-        Categoria
-        <select name="category" >
-            <option value="attraction">Atracción</option>
-            <option value="restaurant">Restaurante</option>
-            <option value="POI">Punto de interés</option>
-            <option value="">Ninguna</option>
-        </select>
+      Categoria
+      <select name="category">
+        <option value="attraction">Atracción</option>
+        <option value="restaurant">Restaurante</option>
+        <option value="POI">Punto de interés</option>
+        <option value="">Ninguna</option>
+      </select>
     </label>
     <label for="name">
-        Nombre del sitio
-    <input type="text" name="name">
+      Nombre del sitio
+      <input type="text" name="name">
     </label>
     <button type="submit">Buscar sitio</button>
-</form>
+  </form>
 </div>
 
-<script src="/js/map.utility.js"></script>  
+<script src="/js/map.utility.js"></script>
 
-{{!-- ahora mismo no esta haciendo nada --, era para usar una funcion}}
-
-{{!-- 
-OPCION PAIS Y CIUDAD --}}
-{{!-- <h1>Busca tu sitio</h1>
-<form action="/search-places" method="get">
-  <label for="location">
-    País
-    <select name="location" onchange="this.form.submit()">
-      {{#each countries}}
-        <option value="{{this}}">{{this}}</option>
-      {{/each}}
-    </select>
-  </label>
-  <label for="name">
-    Nombre del sitio
-    <input type="text" name="name" />
-  </label>
-  <button type="submit">Buscar sitio</button> --}}
+{{!-- {{#if totalPages}}
+  <div class="pagination">
+    {{#if (ne currentPage 1)}}
+      <a href="/search-places?page={{sub currentPage 1}}">Anterior</a>
+    {{/if}}
+    {{#each (range 1 totalPages)}}
+      {{#if (eq this currentPage)}}
+        <span>{{this}}</span>
+      {{else}}
+        <a href="/search-places?page={{this}}">{{this}}</a>
+      {{/if}}
+    {{/each}}
+    {{#if (ne currentPage totalPages)}}
+      <a href="/search-places?page={{add currentPage 1}}">Siguiente</a>
+    {{/if}}
+  </div>
+{{/if}} --}}

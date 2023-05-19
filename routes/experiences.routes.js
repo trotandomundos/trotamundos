@@ -4,7 +4,7 @@ const Review = require("../models/Review.model");
 const { isLoggedIn } = require("../middlewares/route-guard");
 const uploader = require("../config/claudinary.config");
 
-// Mostrar todas mis experiencias
+
 router.get("/", isLoggedIn, async (req, res, next) => {
   console.log(req.session.currentUser._id);
   const experiences = await Experience.find({
@@ -17,7 +17,6 @@ router.get("/", isLoggedIn, async (req, res, next) => {
   });
 });
 
-// Formulario de crear una nueva experiencia
 
 router.get("/new", isLoggedIn, (req, res, next) => {
   res.render("experienceNew", { user: req.session.currentUser });
@@ -39,9 +38,8 @@ router.post("/new", isLoggedIn, uploader.single("imagen"), async (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// Mostrar una experiencia en concreto
-router
-  .get("/:id", isLoggedIn, async (req, res, next) => {
+
+  router.get("/:id", isLoggedIn, async (req, res, next) => {
     const experience = await Experience.findOne({
       _id: req.params.id,
     });
@@ -55,10 +53,8 @@ router
       experience: experience,
     });
   })
-  // .post("/:id", isLoggedIn, (req, res, next) => {
-  //   // POR ESO NO APARECEN LAS IMAGENES??
-  // })
-  .post("/:id/delete", isLoggedIn, async (req, res, next) => {
+
+  router.post("/:id/delete", isLoggedIn, async (req, res, next) => {
     const { deletedCount, acknowledged } = await Experience.deleteOne({
       _id: req.params.id,
     });
@@ -100,9 +96,7 @@ router.post("/:id/edit", async (req, res, next) => {
   }
 });
 
-// -- REVIEWS
 
-// Mostrar todas mis reviews
 router.get("/:id/reviews", isLoggedIn, async (req, res, next) => {
   console.log(req.session.currentUser._id);
   const reviews = await Review.find({
@@ -114,15 +108,15 @@ router.get("/:id/reviews", isLoggedIn, async (req, res, next) => {
   });
 });
 
-// Formulario de crear una nueva review
-router
-  .get("/:id/reviews/:reviewId/edit", isLoggedIn, async (req, res, next) => {
+
+
+  router.get("/:id/reviews/:reviewId/edit", isLoggedIn, async (req, res, next) => {
     const review = await Review.findById({
       _id: req.params.reviewId,
     });
     res.render("reviewEdit", { review: review });
   })
-  .post("/:id/reviews/:reviewId/edit", isLoggedIn, async (req, res, next) => {
+  router.post("/:id/reviews/:reviewId/edit", isLoggedIn, async (req, res, next) => {
     const { title, rating, comment } = req.body;
     try {
       const review = await Review.findByIdAndUpdate(req.params.reviewId, {
@@ -136,16 +130,15 @@ router
     }
   });
 
-// Formulario de crear una nueva review
-router
-  .get("/:id/reviews/new", isLoggedIn, (req, res, next) => {
+
+  router.get("/:id/reviews/new", isLoggedIn, (req, res, next) => {
     console.log(req.params);
     res.render("reviewNew", {
       experienceId: req.params.id,
       user: req.session.currentUser,
     });
   })
-  .post("/:id/reviews/new", isLoggedIn, async (req, res) => {
+  router.post("/:id/reviews/new", isLoggedIn, async (req, res) => {
     console.log(req.body);
     const { title, rating, comment } = req.body;
 
@@ -169,14 +162,13 @@ router.post(
     });
 
     if (deletedCount) {
-      //res.redirect("/myExperiences/" + req.params.id);
       res.redirect("/");
     } else {
       res.status(500).render("Experience not found");
     }
   }
 );
-// Mostrar una review en concreto
+
 router.get("/:id/reviews/:reviewId", isLoggedIn, async (req, res, next) => {
   const review = await Review.findById({
     _id: req.params.reviewId,

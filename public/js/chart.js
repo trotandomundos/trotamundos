@@ -16,10 +16,3 @@ const printChart = (labels, data) => {
     },
   });
 };
-
-// window.addEventListener("load", async () => {
-//   const { data } = await bookService.getAllBooks();
-//   const titles = data.map(b => b.title);
-//   const ratings = data.map(b => b.rating);
-//   printChart(titles, ratings);
-// });

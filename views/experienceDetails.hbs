@@ -3,10 +3,10 @@
 <div class="container-main">
   <div class="container-reviews">
     <div class="experience-izquierda" style="border: solid 1px red">
-      {{!-- {{experience.id}} --}}
       {{experience.titulo}}
-      <textarea>{{experience.texto}}</textarea>
-      <img src="{{experience.imagen}}" alt="" />
+     <div>
+   <textarea readonly>{{experience.texto}}</textarea>
+  <img src="{{experience.imagen}}" alt="" />
       {{experience.filtro}}
       <div class="buttons-experience">
         <a href="/myExperiences/{{experience.id}}/edit">edit</a>
@@ -31,24 +31,14 @@
           <br />
           {{comment}}
           <br />
-          {{! este lo pillo del modelo }}
-          <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a>
+          <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">Views</a>
         </div>
       {{/each}}
     </div>
   </div>
 </div>
-{{! <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script> }}
-{{! <link }}
-{{! href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
-      rel="stylesheet"
-    /> }}
+
 <script
   src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"
 ></script>
-{{! <link
-      rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
-      type="text/css"
-    /> }}
 <script src="/js/create-map.js"></script>

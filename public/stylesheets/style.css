@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom right, #aed6f1, #98ddc5);
-  font-family: Arial, sans-serif;
 }
 
 
@@ -91,44 +90,6 @@ body {
 
 }
 
-.button {
-  padding: 8px 16px;
-  background-color: #00e1ff;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #00b8d4;
-}
-
-.button-primary {
-  background-color: #00e1ff;
-}
-
-.button-secondary {
-  background-color: #ff7f50;
-}
-
-.button-success {
-  background-color: #32cd32;
-}
-
-.button-danger {
-  background-color: #ff0000;
-}
-
-.button-warning {
-  background-color: #ffa500;
-}
-
-.button-info {
-  background-color: #1e90ff;
-}
-
 .container-signup,
 .form-container,
 .container-details {
@@ -199,16 +160,6 @@ body {
   width: 60%;
 }
 
-button[type="submit"] {
-  padding: 12px 24px;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #00e1ff;
-}
-
-
  .columna-experience,
 .container-details {
   width: 30%;
@@ -260,18 +211,6 @@ button[type="submit"]:hover {
   text-decoration: none;
 }
 
-a,
-button {
-  color: #6aa7e9;
-
-  /* Color azul suave */
-}
-
-a:hover,
-button:hover {
-  color: #0056b3;
-  /* Color azul suave más oscuro al pasar el cursor */
-}
 .results-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

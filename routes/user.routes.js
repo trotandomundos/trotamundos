@@ -25,7 +25,6 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
 
 router.get(
   "/:id/edit",
-  // [isLoggedIn, checkRole(["ADMIN", "STUDENT"])],
   async (req, res, next) => {
     try {
       const user = await User.findById(req.params.id);
@@ -80,8 +79,7 @@ router.post(
   }
 );
 
-//------AJUSTES//
-// Mis ajustes
+
 router.get("/:id/ajustes", isLoggedIn, async (req, res) => {
   try {
     const user = await User.findById(req.session.currentUser._id);

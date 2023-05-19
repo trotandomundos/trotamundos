@@ -1,5 +1,4 @@
 function searchCitiesforCountry(country) {
-  //en vez de hacer un get hacer un post con fecth
 
   const options = {
     method: "POST",
@@ -28,5 +27,5 @@ function searchCitiesforCountry(country) {
       console.log(error);
     });
 }
-//creame una funcion callback que cuando clique a un elemento del dropdown me llame a la funcion searchCitiesforCountry
+
 
