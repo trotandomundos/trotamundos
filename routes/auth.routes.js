@@ -2,21 +2,32 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
 const saltRounds = 10;
+const uploader = require("../config/claudinary.config");
 
 // Signup
 router.get("/registro", (req, res, next) => res.render("auth/signup"));
-router.post("/registro", (req, res, next) => {
-  const { userPwd } = req.body;
 
-  bcrypt
-    .genSalt(saltRounds)
-    .then((salt) => bcrypt.hash(userPwd, salt))
-    .then((hashedPassword) =>
-      User.create({ ...req.body, password: hashedPassword })
-    )
-    .then((createdUser) => res.redirect("/"))
-    .catch((error) => next(error));
-});
+router.post(
+  "/registro",
+  uploader.single("profilePic"),
+  async (req, res, next) => {
+    console.log(req.file);
+    const { userPwd } = req.body;
+
+    bcrypt
+      .genSalt(saltRounds)
+      .then((salt) => bcrypt.hash(userPwd, salt))
+      .then((hashedPassword) =>
+        User.create({
+          ...req.body,
+          password: hashedPassword,
+          profilePic: req.file.path,
+        })
+      )
+      .then((createdUser) => res.redirect("/"))
+      .catch((error) => next(error));
+  }
+);
 
 // Login
 

@@ -1,14 +1,7 @@
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Búsqueda de experiencias</title>
-  </head>
-  <body>
-<div class="marco" id="container-home" >
-   <div class="home" >    
-    {{!-- <header>
-      <h1>Búsqueda de experiencias</h1>
-    </header>
+<header>
+  <h1>¡Bienvenido a Trotamundos!</h1>
+</header>
+{{! 
     <main>
       <form id="form-home" action="/search" method="GET">
         <div>
@@ -55,22 +48,28 @@
     
         
       </form>
-     </div>   --}}
-  <button class="container-buttonPlaces"  >
-      <a class="nav-link" href="/search-places">Buscar sitios</a>
-  </button>  
+     </div>   }}
 
-  <div class="container-buttonExperiencia">
-  <button id="button-añadirExperiencia">
-  <a  class="nav-link" href="/myExperiences/new" class="btn btn-dark">Añadir experiencia</a>
-  </button>
+<div class="col">
+  <div class="row">
+    <img src="/images/searchExperience.png" />
   </div>
-
+  <div class="row">
+    <button class="btn btn-dark">
+      <a href="/search-places" class="text-decoration-none">Buscar sitios</a>
+    </button>
+  </div>
 </div>
+<div class="col">
+  <div class="row">
+    <img src="./public/images/addExperience.png" />
+  </div>
+  <div class="row">
+    <button class="btn btn-dark">
+      <a href="/myExperiences/new" class="text-decoration-none">Añadir
+        experiencia</a>
+    </button>
+  </div>
+</div>
+
 {{!-- <a href="/user/{{user._id}}" class="btn btn-dark">ajustes</a> --}}
-
-    </main>
-  </body>
-</html>
-
-

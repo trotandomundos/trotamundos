@@ -1,29 +1,35 @@
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Nueva experiencia</title>
-  </head>
-  <body>
-    <header>
-      <h1>Nueva experiencia</h1>
-    </header>
-    <main>
+
       <form
         action="/myExperiences/new"
         method="POST"
         enctype="multipart/form-data"
       >
-        <div>
-          <label for="titulo">Título:</label>
-          <input type="text" id="titulo" name="titulo" />
-        </div>
-        <div>
+      <div>
+        <label for="titulo">Titulo</label>
+        <input type="text" name="titulo" id="tituli">
+      </div>
+      <div>
           <label for="texto">Texto:</label>
           <textarea type="text" id="texto" name="texto" rows="10"></textarea>
         </div>
         <div>
+        <div>
+         
+ {{!-- <div>
+  <label for="texto">Texto:</label>
+  <textarea readonly>{{experience.texto}}</textarea>
+</div> --}}
+
+        <div>
           <label for="imagen">Imágenes:</label>
-          <input type="file" id="imagen" name="imagen" accept="image/*" />
+          <input
+            {{! // para las imagenes que quieres subir a la nube// }}
+            type="file"
+            id="imagen"
+            name="imagen"
+            accept="image/*"
+            max="5"
+          />
         </div>
         <div>
           <label for="filtro">Filtro:</label>
@@ -39,34 +45,3 @@
           <button type="submit">Crear Experiencia</button>
         </div>
       </form>
-    </main>
-  </body>
-</html>
-{{!-- <div class="mb-3">
-  <label for="rating" class="form-label">Rating</label>
-  <input type="number" class="form-control" id="rating" name="rating" />
-</div>
-
-<div class="mb-3">
-  <label for="latitude" class="form-label">Latitude</label>
-  <input
-    required
-    type="number"
-    step="any"
-    class="form-control"
-    id="latitude"
-    name="latitude"
-  />
-</div>
-
-<div class="mb-3">
-  <label for="longitude" class="form-label">Longitude</label>
-  <input
-    required
-    type="number"
-    step="any"
-    class="form-control"
-    id="longitude"
-    name="longitude"
-  />
-</div> --}}

@@ -24,18 +24,16 @@ router.get("/new", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/new", isLoggedIn, uploader.single("imagen"), async (req, res) => {
-  const { titulo, texto, imagen, filtro } = req.body;
+  const { titulo, texto, filtro } = req.body;
+  const imagen = req.file ? req.file.path : null;
   console.log(req.file);
-  let image = undefined;
-  if (req.file) {
-    image = req.file.path;
-  }
   Experience.create({
     titulo,
     texto,
-    imagen: image,
+    imagen,
     filtro,
     userId: req.session.currentUser._id,
+    createdAt: new Date(),
   })
     .then(() => res.redirect("/myExperiences"))
     .catch((err) => console.log(err));
@@ -57,9 +55,9 @@ router
       experience: experience,
     });
   })
-  .post("/:id", isLoggedIn, (req, res, next) => {
-    // POR ESO NO APARECEN LAS IMAGENES??
-  })
+  // .post("/:id", isLoggedIn, (req, res, next) => {
+  //   // POR ESO NO APARECEN LAS IMAGENES??
+  // })
   .post("/:id/delete", isLoggedIn, async (req, res, next) => {
     const { deletedCount, acknowledged } = await Experience.deleteOne({
       _id: req.params.id,

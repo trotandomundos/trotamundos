@@ -39,6 +39,34 @@ router.post("/search-places", isLoggedIn, async (req, res, next) => {
       console.log("Tu error es", error);
     });
 });
+//dime como puedo usa esta ultima parte del codigo get para usar paginacion 
+
+
+
+//----paginacion 
+// axios
+//     .get(urlAPi)
+//     .then((response) => {
+//       const pageSize = 10; // Número de resultados por página
+//       const totalResults = response.data.length;
+//       const totalPages = Math.ceil(totalResults / pageSize);
+//       const startIndex = (page - 1) * pageSize;
+//       const endIndex = startIndex + pageSize;
+//       const paginatedResults = response.data.slice(startIndex, endIndex);
+
+//       res.render("search-places-results", {
+//         response: paginatedResults,
+//         user: req.session.currentUser,
+//         currentPage: page,
+//         totalPages: totalPages,
+//       });
+//       console.log(paginatedResults);
+//       // Los datos de l y l para mapa están en response.data y se envían correctamente
+//     })
+//     .catch((error) => {
+//       console.log("Tu error es", error);
+//     });
+//     });
 
 //DETALLES API, ME DEVUELVE LOS DATOS PERO NO ME APARECE EL MAPA, AUNQUE LG Y LONG ME LOS DA
 router.get("/search-places/details/:id", isLoggedIn, async (req, res, next) => {
@@ -69,51 +97,5 @@ router.get("/search-places/details/:id", isLoggedIn, async (req, res, next) => {
     // Lógica para manejar el error en caso de que ocurra un problema al llamar a la API
   }
 });
-
-//_-----------------------_//
-// router.post("/create-experience-with-api", async (req, res, next) => {
-//   const body = req.body;
-//   console.log(body);
-//   res.render("createExperienceApi", { body });
-// });
-
-// FALTARÍA IMPLEMENTAR LA FOTO
-// router.post("/create-experience-with-api", async (req, res, next) => {
-// como lo queremos
-//     location: String,  →
-//   coordinates:[String], →
-//   placeName: String,
-
-// como nos llegan
-//     {
-//   name: 'freelance dee jay',
-//   address: 'Eva Besnyöstraat 289, Amsterdam, Netherlands',
-//   lat: '52.351137',
-//   lng: '5.005955'
-// }
-
-//   console.log(req.body);
-//   const { titulo, texto, imagen, filtro, address, lat, lng } = req.body;
-//   const coordinates = [lng, lat];
-//   const location = address;
-//   const placeName = name;
-//   const userId = req.session.currentUser._id;
-
-//   const newExperience = await Experience.create({
-//     titulo,
-//     texto,
-//     imagen,
-//     filtro,
-//     coordinates,
-//     location,
-//     placeName,
-//     userId,
-//   });
-
-//   await User.findByIdAndUpdate(userId, {
-//     $push: { myExperiences: newExperience._id },
-//   });
-//   res.send("hola");
-// });
 
 module.exports = router;

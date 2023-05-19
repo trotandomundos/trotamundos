@@ -1,52 +1,54 @@
-<h2>Experience Details</h2>
+<h2 class="title-experienceDetails">Experience Details</h2>
 
-<div class="marco">
-  <div>
-    {{experience.id}}
-    {{experience.titulo}}
-    {{experience.texto}}
-    <img src="{{experiencie.imagen}}" alt="" />
-    {{experience.filtro}}
-    {{! // este lo saco del objeto experienciade arriba// }}
-    <a href="/myExperiences/{{experience.id}}/edit">edit</a>
-    <form action="/myExperiences/{{experience.id}}/delete" method="POST">
-      <button type="submit">borrar</button>
-    </form>
-
-    <a
-      href="/myExperiences/{{experience.id}}/reviews/new"
-      class="btn btn-dark"
-    >Añadir reseña</a>
-  </div>
-
-  MAPA
-  <div id="map" style=" margin-left: 100px; height: 100px; width:100px;"></div>
-  {{! <br></br> }}
-  <h3>Reseñas</h3>
-  {{#each reviews}}
-    <div class="marco">
-      {{title}}
-      {{rating}}
-      {{comment}}
-      {{! este lo pillo del modelo }}
-      <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a>
+<div class="container-main">
+  <div class="container-reviews">
+    <div class="experience-izquierda" style="border: solid 1px red">
+      {{!-- {{experience.id}} --}}
+      {{experience.titulo}}
+      <textarea>{{experience.texto}}</textarea>
+      <img src="{{experience.imagen}}" alt="" />
+      {{experience.filtro}}
+      <div class="buttons-experience">
+        <a href="/myExperiences/{{experience.id}}/edit">edit</a>
+        <form action="/myExperiences/{{experience.id}}/delete" method="POST">
+          <button type="submit">borrar</button>
+        </form>
+      </div>
+      <div class="fecha-creacion">
+        <p>Fecha de creación: {{experience.createdAt}}</p>
+      </div>
     </div>
-  {{/each}}
 
+    <div class="reviews">
+      <div class="title-reviews">
+        <h3>Reseñas</h3>
+      </div>
+      {{#each reviews}}
+        <div class="details-reviews" style="border: solid 1px red">
+          {{title}}
+          <br />
+          {{rating}}
+          <br />
+          {{comment}}
+          <br />
+          {{! este lo pillo del modelo }}
+          <a href="/myExperiences/{{experienceId}}/reviews/{{_id}}">View</a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 </div>
-{{!-- <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script> --}}
-{{!-- <link --}}
-  {{!-- href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
-  rel="stylesheet"
-/> --}}
+{{! <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script> }}
+{{! <link }}
+{{! href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
+      rel="stylesheet"
+    /> }}
 <script
   src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"
 ></script>
-{{!-- <link
-  rel="stylesheet"
-  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
-  type="text/css"
-/> --}}
+{{! <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    /> }}
 <script src="/js/create-map.js"></script>
-{{! 
- //todos los js para crear el mapa// }}

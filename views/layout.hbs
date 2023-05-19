@@ -16,9 +16,8 @@
 
 <body>
  {{!-- para acceder a la imagen de favicon , es "../" --}}
- <div id="nav">
-   
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
        <img src="/favicon.png" alt="Trotamundoss" width="50" height="50">
     <div class="container-fluid">
        <a class="navbar-brand" href="/">{{siteTitle}}</a>
@@ -34,7 +33,7 @@
 
               <li class="nav-item">
                 <form action="/cerrar-sesion" method="POST">
-                  <button class="nav-link">Logout</button>
+                  <a class="nav-link">Logout</a>
                 </form> 
               </li>
               <li class="nav-item">
@@ -44,7 +43,7 @@
                 <a class="nav-link" href="/search-places">Buscar sitios</a>
               </li> --}}
               <li class="nav-item">
-                <a href="/user/{{user._id}}" class="btn btn-dark">ajustes</a>
+                <a class="nav-link" href="/user/{{user._id}}">Ajustes</a>
               </li>
 
               {{else}}
@@ -60,10 +59,9 @@
       </div>
     </div>
     </nav>
-</div>
-
+  <div class="container mt-5">
    {{{body}}}
-   
+    </div>
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
 

@@ -13,25 +13,18 @@ const experienceSchema = new Schema({
   texto: {
     type: String,
   },
-  imagen: 
-    {
-      type: String,
-    },
+  imagen: {
+    type: String,
+  },
   filtro: {
     type: [String],
     enum: ["pais", "ciudad", "naturaleza", "ocio", "precio"],
     required: false,
   },
-  // GeoJSON: https://www.mongodb.com/docs/manual/reference/geojson/
-  // location: {
-  //   type: {
-  //     type: String, // Point, Line, Polygon...
-  //   },
-  //   coordinates: [Number], // Lng [-180 to 180]  - Lat [-90 to 90]
-  // },
-  location: String, 
-  coordinates:[String], 
-  placeName: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Experience = mongoose.model("Experience", experienceSchema);

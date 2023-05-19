@@ -20,12 +20,47 @@
       console.log({{lat}}/{{lng}})
       <form action="/create-experience-with-api" method="post">
         {{!-- <input type="text" name="lat" value="{{lat}}" hidden />
-      <input type="text" name="lng" value="{{lng}}" hidden /> --}}
+        <input type="text" name="lng" value="{{lng}}" hidden /> --}}
         {{! <button type="submit">Crear experiencia</button> }}
       </form>
     </div>
   {{/each}}
 </div>
+
+<!-- Agrega la sección de paginación -->
+{{!-- <div class="pagination">
+  {{#if (gt totalPages 1)}}
+    {{#if (ne currentPage 1)}}
+      <a href="/search-places?page={{sub currentPage 1}}">Anterior</a>
+    {{/if}}
+    {{#each (range 1 totalPages)}}
+      {{#if
+        (or
+          (eq this 1)
+          (eq this totalPages)
+          (and (gte (sub this 2) currentPage) (lte (add this 2) currentPage))
+        )
+      }}
+        {{#if (eq this currentPage)}}
+          <span>{{this}}</span>
+        {{else}}
+          <a href="/search-places?page={{this}}">{{this}}</a>
+        {{/if}}
+      {{else if
+        (and
+          (gt this 1)
+          (lt this totalPages)
+          (or (eq (sub this 1) currentPage) (eq (add this 1) currentPage))
+        )
+      }}
+        <span>...</span>
+      {{/if}}
+    {{/each}}
+    {{#if (ne currentPage totalPages)}}
+      <a href="/search-places?page={{add currentPage 1}}">Siguiente</a>
+    {{/if}}
+  {{/if}}
+</div> --}}
 
 <script src="/js/create-map.js"></script>
 <script src="/js/chart.js"></script>

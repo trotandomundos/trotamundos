@@ -1,19 +1,19 @@
+html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom right, #aed6f1, #98ddc5);
   font-family: Arial, sans-serif;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.container-nav {
-  width: 90%;
 
+.header {
+  text-align: center;
+  margin-bottom: 20px;
 }
+
+
 .marco {
   border: 2px solid #374785;
   background-color: #182c49;
@@ -36,26 +36,6 @@ body {
 #nav{
   width: 100%;
 }
-
-.container {
-  height: 80%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 150px;
-}
-
-
-
-.container-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  padding: 20px;
-  padding-top: 100px;
-}
-
 
 
 .columna {
@@ -166,10 +146,6 @@ body {
   flex-grow: 1;
 }
 
-h2 {
-  text-align: center;
-}
-
 .details-user {
   background-color: white;
   padding: 20px;
@@ -233,32 +209,23 @@ button[type="submit"]:hover {
 }
 
 
-.container-main .columna-experience,
-.container-main .container-details {
+ .columna-experience,
+.container-details {
   width: 30%;
 }
 
-.container-main .columna-experience {
+.columna-experience {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 20px;
 }
 
-.container-main .container-details {
+.container-details {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   padding: 20px;
-}
-
-.col-md-6 {
-  width: 100%;
-}
-
-.container-main {
-  width: 100%;
-  justify-content: space-evenly;
 }
 
 .form-container h1 {
@@ -332,52 +299,6 @@ button:hover {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .results-container {
-    grid-template-columns: 1fr;
-  }
-}
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.column {
-  width: 100%;
-  max-width: 400px;
-}
-
-.footer {
-  text-align: center;
-  margin-top: 20px;
-}
-
-
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row;
-  }
-
-  .column {
-    width: 50%;
-    max-width: none;
-  }
-}
 #container-home  {
   display: flex;
   justify-content: space-between;
@@ -388,11 +309,6 @@ body {
   border: none;
   padding: 10px;
   transition: background-color 0.3s;
-}
-
-.container-buttonPlaces:hover,
-.container-buttonExperiencia:hover {
-  background-color: #73b2ff;
 }
 
 .container-buttonPlaces a,
