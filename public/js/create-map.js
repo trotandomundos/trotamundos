@@ -9,12 +9,7 @@ const main = () => {
   const mapas = document.querySelectorAll('[id^="map-"]'); // es una query
   const canvas = document.getElementById("myCanvas");
   // const ctx = canvas.getContext("2d", { willReadFrequently: true }); // para renderizar varios mapas
-
-  // itero los mapas
-  mapas.forEach((mapa, index, arr) => {
-    // mapa = map-3123123.3123213213/1.13123123
-    // mapa.replace("map-", "") = 3123123.3123213213/1.13123123
-    // mapa.split("/") = [3123123.3123213213, 1.13123123]
+  mapas.forEach((mapa) => {
     const coords = mapa?.id?.replace("map-", "").split("/");
     const latitude = parseFloat(coords[0]);
     const longitude = parseFloat(coords[1]);
@@ -23,15 +18,44 @@ const main = () => {
       console.error("Error: Las coordenadas deben ser números");
       return;
     }
-    console.log("latitude ==>", latitude);
-    console.log("longitude ==>", longitude);
-    // Create map with search input (geocoder)
+
     const map = new mapboxgl.Map({
       container: mapa?.id,
-      zoom: 9,
+      zoom: 15,
       center: [longitude, latitude],
       style: "mapbox://styles/mapbox/streets-v11",
     });
+
+    new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map);
   });
 };
+
 window.addEventListener("load", main);
+
+//   // itero los mapas
+//   mapas.forEach((mapa, index, arr) => {
+//     // mapa = map-3123123.3123213213/1.13123123
+//     // mapa.replace("map-", "") = 3123123.3123213213/1.13123123
+//     // mapa.split("/") = [3123123.3123213213, 1.13123123]
+//     const coords = mapa?.id?.replace("map-", "").split("/");
+//     const latitude = parseFloat(coords[0]);
+//     const longitude = parseFloat(coords[1]);
+
+//     if (isNaN(longitude) || isNaN(latitude)) {
+//       console.error("Error: Las coordenadas deben ser números");
+//       return;
+//     }
+//     console.log("latitude ==>", latitude);
+//     console.log("longitude ==>", longitude);
+//     // Create map with search input (geocoder)
+//     const map = new mapboxgl.Map({
+//       container: mapa?.id,
+//       zoom: 15,
+//       center: [longitude, latitude],
+//       style: "mapbox://styles/mapbox/streets-v11",
+//     });
+
+//   });
+
+// };
+// window.addEventListener("load", main);
