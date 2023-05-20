@@ -53,7 +53,7 @@ Our project offers tourists the opportunity to obtain information collected from
     default: Date.now,
   },
     }
-}
+
 ```
 
 

@@ -23,6 +23,11 @@ body {
   color: #fff;
   padding: 20px;
 }
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 350px;
+}
 
 /* #home{
   width: 90%;
@@ -140,7 +145,7 @@ body {
   border-radius: 20px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
-}
+} 
 
 .container-details:last-child {
   margin-bottom: 0;
