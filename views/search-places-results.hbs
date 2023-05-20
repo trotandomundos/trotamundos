@@ -1,32 +1,54 @@
-<h1>Resultados</h1>
+<html>
+  <head>
+    <title>Resultados</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="text-center">Resultados</h1>
 
-<div class="results-container">
-  {{#each response}}
-    <div class="result-card">
-      <hr />
-      <p>name: {{name}}</p>
-      <input type="text" name="name" value="{{name}}" hidden />
-      <p>address: {{address}}</p>
-      <input type="text" name="address" value="{{address}}" hidden />
-      <p>category: {{category}}</p>
-      <p>location: {{location}}</p>
-      {{! me devuelve bien los datos de long y latitud }}
-      <p>lat: {{lat}}</p>
-      <p>lng: {{lng}}</p>
-      <p>number of reviews: {{numReviews}}</p>
-      <p>Details: <a href="{{details}}">Ver detalles</a></p>
-      <canvas id="myChart"></canvas>
-      <div id="map-{{lat}}/{{lng}}" style="width: 100%; height: 400px;"></div>
-      console.log({{lat}}/{{lng}})
-      <form action="/create-experience-with-api" method="post">
-      </form>
+    <div class="container">
+      <div class="row results-container">
+        {{#each response}}
+          <div class="col-lg-4 col-md-6">
+            <div class="result-card">
+              <hr />
+              <p>name: {{name}}</p>
+              <input type="text" name="name" value="{{name}}" hidden />
+              <p>address: {{address}}</p>
+              <input type="text" name="address" value="{{address}}" hidden />
+              <p>category: {{category}}</p>
+              <p>location: {{location}}</p>
+              <p>lat: {{lat}}</p>
+              <p>lng: {{lng}}</p>
+              <p>number of reviews: {{numReviews}}</p>
+              <p>Details: <a href="{{details}}">Ver detalles</a></p>
+              <canvas id="myChart"></canvas>
+              <div id="map-{{lat}}/{{lng}}" class="map"></div>
+              <form action="/create-experience-with-api" method="post">
+              </form>
+            </div>
+          </div>
+        {{/each}}
+      </div>
     </div>
-  {{/each}}
-</div>
 
-<span id="pagina"></span>
-<button id="cargar" onClick="loadNextResults()">
-  Cargar mas resultados
-</button>
-<script src="/js/create-map.js"></script>
-<script src="/js/chart.js"></script>
+    <span id="pagina"></span>
+    <button id="cargar" onclick="loadNextResults()">
+      Cargar más resultados
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+    <script src="create-map.js"></script>
+    <script src="chart.js"></script>
+  </body>
+</html>

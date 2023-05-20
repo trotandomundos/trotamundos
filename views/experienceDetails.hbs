@@ -5,7 +5,7 @@
     <div class="experience-izquierda">
       {{experience.titulo}}
      <div>
-   <textarea readonly>{{experience.texto}}</textarea>
+   <textarea class="textarea" readonly>{{experience.texto}}</textarea>
   <img src="{{experience.imagen}}" alt="" />
       {{experience.filtro}}
       <div class="buttons-experience">
@@ -18,11 +18,8 @@
         <p>Fecha de creación: {{experience.createdAt}}</p>
       </div>
     </div>
-  <a
-    href="/myExperiences/{{experience.id}}/reviews/new"
-    class="btn btn-dark"
-  >Añadir reseña</a>
-  <br></br>
+
+ 
     <div class="reviews">
       <div class="title-reviews">
         <h3>Reseñas</h3>
@@ -39,6 +36,10 @@
         </div>
       {{/each}}
     </div>
+    <a
+    href="/myExperiences/{{experience.id}}/reviews/new"
+    class="btn btn-dark"
+  >Añadir reseña</a>
   </div>
 </div>
 

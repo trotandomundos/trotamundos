@@ -1,10 +1,53 @@
-<h2>Experiences list</h2>
-<div class="marco">
-  {{#each experiences}}
-    <div class="marco">
-      {{titulo}}
-      {{filtro}}
-      <a href="/myExperiences/{{_id}}">Visitar</a>
+<div class="container">
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 100vh;"
+  >
+    <div class="col-md-8">
+      <div class="card bg-white rounded-lg border border-dark p-5">
+        <h1 class="text-center">Busca tu sitio</h1>
+
+        <div class="marco mt-4">
+          <form action="/search-places" method="post">
+            <div class="form-group">
+              <label for="location">Ciudad</label>
+              <select class="form-control" name="location">
+                <option value="Amsterdam">Amsterdam</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Dubay">Dubay</option>
+                <option value="London">London</option>
+                <option value="Paris">Paris</option>
+                <option value="Rome">Rome</option>
+                <option value="Tuscany">Tuscany</option>
+                <option value="">Ninguno</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Categoria</label>
+              <select class="form-control" name="category">
+                <option value="attraction">Atracción</option>
+                <option value="restaurant">Restaurante</option>
+                <option value="POI">Punto de interés</option>
+                <option value="">Ninguna</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Nombre del sitio</label>
+              <input type="text" class="form-control" name="name" />
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Buscar sitio</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
     </div>
-  {{/each}}
+  </div>
 </div>
+
+<script src="/js/map.utility.js"></script>

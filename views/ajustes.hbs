@@ -1,15 +1,26 @@
-
-    <div class="marco">
-      <h1>Perfil de usuario</h1>
-
-          <h2>Información de usuario</h2>
-          <ul>
-            <li><strong>Username:</strong> {{user.username}}</li>
-            <li><strong>Email:</strong> {{user.email}}</li>
-            <li><strong>Imagen de perfil:</strong>
-              <img src="{{user.profileImg}}" alt="Imagen de perfil" /></li>
-            <li><strong>Descripción:</strong> {{user.description}}</li>
-            
-          </ul>
-
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="card border border-dark rounded">
+      <div class="card-body">
+        <h1 class="card-title">Perfil de usuario</h1>
+        <h2 class="card-subtitle mb-3">Información de usuario</h2>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Username:</strong>
+            {{user.username}}</li>
+          <li class="list-group-item"><strong>Email:</strong>
+            {{user.email}}</li>
+          <li class="list-group-item">
+            <strong>Imagen de perfil:</strong>
+            <img
+              src="{{user.profileImg}}"
+              alt="Imagen de perfil"
+              class="img-fluid"
+            />
+          </li>
+          <li class="list-group-item"><strong>Descripción:</strong>
+            {{user.description}}</li>
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
