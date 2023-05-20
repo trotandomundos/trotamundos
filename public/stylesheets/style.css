@@ -1,31 +1,41 @@
 html{
 height: 100%;
 }
+
 body {
-  display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    padding: 20px;
   height: 100%;
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom right, #aed6f1, #98ddc5);
 }
-.results-container {
-  justify-content: center;
+
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.result-card {
-  margin-bottom: 20px;
+
+.marco {
+  border: 2px solid #374785;
+  background-color: #182c49;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px;
+}
+
+/* #home{
+  width: 90%;
   text-align: center;
 }
-
-.map {
+#form-home #pais,#ciudad,#fecha_fin,#fecha_inicio,#checkbox{
+  width: 30%;
+}
+.justify-content-center{
+  width: 80%;
+}
+#nav{
   width: 100%;
-  height: 400px;
 }
 
 
@@ -39,6 +49,34 @@ body {
   border-radius: 20px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
+} */
+/* 
+.columna:last-child {
+  margin-bottom: 0;
+}
+
+.container-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.experience-izquierda {
+  flex-direction: column;
+  display: flex;
+  border: solid 1px black;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+.buttons-experience {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .buttons-experience a {
@@ -65,7 +103,11 @@ body {
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-
+.form-container form,
+.container-signup form,
+.container-details form {
+  flex-grow: 1;
+}
 
 .details-user {
   background-color: white;
@@ -74,6 +116,16 @@ body {
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
+.details-user img {
+  float: right;
+  max-width: 100%;
+  height: auto;
+  margin-left: 20px;
+}
+
+.title-experienceDetails {
+  padding-top: 100px;
+}
 
 .reviews {
   border-radius: 20px;
@@ -94,15 +146,57 @@ body {
   margin-bottom: 0;
 }
 
+.container-form {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
 
+.container-form img {
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.form-container {
+  width: 60%;
+}
+
+ .columna-experience,
+.container-details {
+  width: 30%;
+}
+
+.columna-experience {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.container-details {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.form-container h1 {
+  padding-bottom: 30px;
+} */
+/* 
+.form-login {
+  padding-top: 50px;
+}
+
+.edit-user,
 .details-reviews a,
 .columna div a {
   display: inline-block;
   padding: 10px 20px;
   background-color: #f1f1f1;
-  color: #007bff;
-
-  text-decoration: none;
+  color: #007bff; */
+  /* text-decoration: none;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
@@ -116,6 +210,38 @@ body {
   color: #fff;
 
   text-decoration: none;
+} */
+/* 
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.result-card {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.result-card hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.result-card input[type="text"],
+.result-card button[type="submit"] {
+  display: none;
+}
+
+.result-card a {
+  text-decoration: none;
+}
+
+#container-home  {
+  display: flex;
+  justify-content: space-between;
 }
 
 .container-buttonPlacesx{
@@ -131,10 +257,29 @@ body {
   text-decoration: none;
 }
 
+.container-buttonPlaces a.nav-link,
+.container-buttonExperiencia a.nav-link {
+  display: block;
+  padding: 8px 16px;
+} */
 
-.container-buttonPlaces a.nav-link:hover,
+/* .container-buttonPlaces a.nav-link:hover,
 .container-buttonExperiencia a.nav-link:hover {
   background-color: #73b2ff;
   color: #182c49;
 }
+#container-home{
+  display: flex;
+  margin-top: 5%;
+  height: 60%;
+  width: 80%;
+}
+.home{
+    display: flex;
+    margin: 0 auto;
+  }
+  #button-añadirExperiencia{
+    height: 100%
+  } */
+
 
