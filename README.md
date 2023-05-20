@@ -24,3 +24,72 @@ Our project offers tourists the opportunity to obtain information collected from
 - **Log in** - As users, we want to be able to log in and manage our profile and services. 🐥
 - **Profile page** - As users, we want to be able to edit our profile, manage our services and visualize our history of sold and booked services. 🦢
 - **Edit user/experience page** - As users, we want to be able to edit . 🐽
+
+## Models
+
+### Experience.model.js
+```javascript
+{
+   userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  titulo: {
+    type: String,
+  },
+  texto: {
+    type: String,
+  },
+  imagen: {
+    type: String,
+  },
+  filtro: {
+    type: [String],
+    enum: ["pais", "ciudad", "naturaleza", "ocio", "precio"],
+    required: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+    }
+}
+```
+
+
+### Review.model.js
+```javascript
+ userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  experienceId: {
+    type: Schema.Types.ObjectId,
+    ref: "Experience",
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+    maxlength: 20,
+  },
+  comment: {
+    type: String,
+    required: true,
+    maxlength: 500,
+  },
+  rating: {
+    type: Number,
+    min: 0,
+    max: 10,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+```
+### Slides
+
+URls for the project presentation
+[Link Slides.com](https://slides.com/fritzweninger/code)
+
